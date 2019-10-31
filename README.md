@@ -1,61 +1,19 @@
-﻿# D43: [LED显示设备](https://github.com/OS-Q/D43) 
-
+﻿# [LITE](https://github.com/OS-Q/D43)
 [![sites](OS-Q/OS-Q.png)](http://www.OS-Q.com)
-
-#### 归属显示输出：[W7](https://github.com/OS-Q/W7)
-
+#### 归属机电控制：[W13](https://github.com/OS-Q/W13)
 #### 关于系统架构：[OS-Q](https://github.com/OS-Q/OS-Q)
 
-## [设备描述](https://github.com/OS-Q/D43/wiki) 
+[EDGE-Q](https://github.com/OS-Q/EDGE-Q) -> Q[4] -> M[12] -> W[52] -> D[365] -> H[24] -> N[60] -> S[60]
 
-通过LED显示相关数据
+### [库描述](https://github.com/OS-Q/D43/wiki) 
 
-### [包含资源](OS-Q/) 
+[LITE](https://github.com/OS-Q/D43)
 
-#### [资料手册](docs/)
+### [库资源](https://github.com/OS-Q/D43)
 
-相关芯片手册
+* [文档](docs/)
+* [资源](src/)
+* [示例](examples/)
 
-#### [工程源码](project/)
-
-基于N76E003单片机和WS2812彩灯
-
----
-
-- 边缘设备统一命名规则：体系 Q:[1,4] -> 节点 M:[1,12] -> 平台 W:[1,52] -> 设备 D:[1,365]
-
-## [同级设备](https://github.com/OS-Q/W7/wiki) 
-
-#### -> D43：[LED灯](https://github.com/OS-Q/D43)
-
-通过LED灯光显示相关信息
-
-#### D44：[数码管](https://github.com/OS-Q/D44)
-
-通过数码管显示数据信息
-
-#### D45：[小尺寸](https://github.com/OS-Q/D45)
-
-3寸内显示器
-
-#### D46：[中尺寸](https://github.com/OS-Q/D46)
-
-3-5寸内显示器
-
-#### D47：[大尺寸](https://github.com/OS-Q/D47)
-
-5-8寸内显示器
-
-#### D48：[立体呈现](https://github.com/OS-Q/D48)
-
-光学设备立体呈现
-
-#### D49：[物理显示](https://github.com/OS-Q/D49)
-
-通过移动外部物体呈现数据
-
----
-
-####  © qitas@qitas.cn
-###  [OS-Q redefined Operation System](http://www.OS-Q.com)
-####  @ 2018-12-14
+### [OS-Q = Open Solutions | Open Source |  Operating System ](http://www.OS-Q.com/D43)
+####  2019-10-31
