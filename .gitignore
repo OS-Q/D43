@@ -1,3 +1,10 @@
-*.pyc
-.pio/
-.vscode/
+.pio
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+*.map
+*cm23*
+*cm33*
+*sc00*
+*sc30*
