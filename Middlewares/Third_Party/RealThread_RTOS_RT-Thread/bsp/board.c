@@ -8,7 +8,7 @@
  * 2017-07-24     Tanek        the first version
  * 2018-11-12     Ernest Chen  modify copyright
  */
- 
+
 #include <stdint.h>
 #include <rthw.h>
 #include <rtthread.h>
@@ -26,12 +26,12 @@ extern UART_HandleTypeDef huart1;
 #define _SYSTICK_CALIB  (*(rt_uint32_t *)(_SCB_BASE + 0xC))
 #define _SYSTICK_PRI    (*(rt_uint8_t  *)(0xE000ED23UL))
 
-// Updates the variable SystemCoreClock and must be called 
+// Updates the variable SystemCoreClock and must be called
 // whenever the core clock is changed during program execution.
 extern void SystemCoreClockUpdate(void);
 
-// Holds the system core clock, which is the system clock 
-// frequency supplied to the SysTick timer and the processor 
+// Holds the system core clock, which is the system clock
+// frequency supplied to the SysTick timer and the processor
 // core clock.
 extern uint32_t SystemCoreClock;
 
@@ -41,12 +41,12 @@ static uint32_t _SysTick_Config(rt_uint32_t ticks)
     {
         return 1;
     }
-    
-    _SYSTICK_LOAD = ticks - 1; 
+
+    _SYSTICK_LOAD = ticks - 1;
     _SYSTICK_PRI = 0xFF;
     _SYSTICK_VAL  = 0;
-    _SYSTICK_CTRL = 0x07;  
-    
+    _SYSTICK_CTRL = 0x07;
+
     return 0;
 }
 
@@ -77,16 +77,16 @@ void rt_hw_board_init()
     SystemClock_Config();
     MX_GPIO_Init();
     MX_USART1_UART_Init();
-   
+
     /* 使用串口1作为调试串口，初始化一个消息队列保存串口1接收到的数据，并手动开启串口中断 */
-    rt_err_t error = rt_mq_init(&consoleInputMQ,"consoleInputMQ",consoleInputBuffer,
+    rt_err_t err = rt_mq_init(&consoleInputMQ,"consoleInputMQ",consoleInputBuffer,
                                 1,sizeof(consoleInputBuffer),RT_IPC_FLAG_FIFO);
-    RT_ASSERT(error == RT_EOK);
+    RT_ASSERT(err == RT_EOK);
     SET_BIT(huart1.Instance->CR1, USART_CR1_PEIE | USART_CR1_RXNEIE);
 
     /* System Clock Update */
     SystemCoreClockUpdate();
-    
+
     /* System Tick Configuration */
     _SysTick_Config(SystemCoreClock / RT_TICK_PER_SECOND);
 
