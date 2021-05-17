@@ -1,0 +1,13 @@
+kind: pipeline
+name: OSQ
+
+steps:
+steps:
+- name: PIO
+  image: python:3
+  commands:
+  - apt update
+  - apt install -y git
+  - git submodule update --init --recursive
+  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - pio run -d .
