@@ -19,6 +19,7 @@ jobs:
       matrix:
         env:
           - debug
+          - release
 
     runs-on: ubuntu-latest
     steps:

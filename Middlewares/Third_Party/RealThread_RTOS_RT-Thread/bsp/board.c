@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2006-2019, RT-Thread Development Team
- *
- * SPDX-License-Identifier: Apache-2.0
- *
- * Change Logs:
- * Date           Author       Notes
- * 2017-07-24     Tanek        the first version
- * 2018-11-12     Ernest Chen  modify copyright
- */
 
 #include <stdint.h>
 #include <rthw.h>
