@@ -69,10 +69,9 @@ void rt_hw_board_init()
     MX_USART1_UART_Init();
 
     /* 使用串口1作为调试串口，初始化一个消息队列保存串口1接收到的数据，并手动开启串口中断 */
-    // rt_err_t err =
-    rt_mq_init(&consoleInputMQ,"consoleInputMQ",consoleInputBuffer,
+    rt_err_t err = rt_mq_init(&consoleInputMQ,"consoleInputMQ",consoleInputBuffer,
                                 1,sizeof(consoleInputBuffer),RT_IPC_FLAG_FIFO);
-    // RT_ASSERT(err == RT_EOK);
+    RT_ASSERT(err == RT_EOK);
     SET_BIT(huart1.Instance->CR1, USART_CR1_PEIE | USART_CR1_RXNEIE);
 
     /* System Clock Update */
