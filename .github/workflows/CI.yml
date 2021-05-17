@@ -39,17 +39,13 @@ jobs:
           pip install -U https://github.com/platformio/platformio/archive/develop.zip
 
       - name: Build
-        id: build
         if: success()
         run: |
-          mkdir build
-          pio run -e ${{ matrix.env }} -d . > build/log.txt
-          # cp -f ./.qio/build/${{ matrix.env }}/*.bin ./build/
-          cp -f ./.qio/build/${{ matrix.env }}/*.bin ./build/
-          echo "::set-output name=status::success"
+          pio run -e ${{ matrix.env }} -d .
 
       - name: Upload
+        if: success()
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.env }}_${{github.workflow}}
-          path: build/
+          path: ./.qio/build/${{ matrix.env }}/
