@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+
+env:
+  UPLOAD_BUILD: true
+
+jobs:
+  build:
+    name: QIO
+    strategy:
+      fail-fast: false
+      matrix:
+        env:
+          - debug
+          - release
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
+          pio platform install https://github.com/OS-Q/P21/releases/latest/download/P21.zip
+
+      - name: Build
+        id: build
+        if: success()
+        run: |
+          mkdir build
+          pio run -e ${{ matrix.env }} -d . > build/log.txt
+          # cp -f ./.qio/build/${{ matrix.env }}/*.bin ./build/
+          cp -f ./.qio/build/${{ matrix.env }}/*.bin ./build/
+          echo "::set-output name=status::success"
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        if: env.UPLOAD_BUILD
+        with:
+          name: ${{ matrix.env }}_${{github.workflow}}
+          path: build/
