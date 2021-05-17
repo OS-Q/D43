@@ -47,5 +47,5 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.env }}_${{github.workflow}}
-          path: ./.qio/build/${{ matrix.env }}/
+          name: ${{github.workflow}}_${{ matrix.env }}
+          path: ./.pio/build/${{ matrix.env }}/
