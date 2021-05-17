@@ -259,11 +259,9 @@ void rt_object_init(struct rt_object         *object,
             node != &(information->object_list);
             node  = node->next)
     {
-        // struct rt_object *obj;
-
-        // obj =
-        rt_list_entry(node, struct rt_object, list);
-        // RT_ASSERT(obj != object);
+        struct rt_object *obj;
+        obj = rt_list_entry(node, struct rt_object, list);
+        RT_ASSERT(obj != object);
     }
     /* leave critical */
     rt_exit_critical();
