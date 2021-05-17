@@ -2,7 +2,7 @@ Import("env")
 import shutil
 import os
 
-env.Append(LINKFLAGS=["--specs=nano.specs"])
+# env.Append(LINKFLAGS=["--specs=nano.specs"])
 # env.Append(LINKFLAGS=["--specs=nosys.specs", "--specs=nano.specs"])
 
 def after_build(source, target, env):

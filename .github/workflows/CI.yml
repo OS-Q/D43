@@ -20,7 +20,7 @@ jobs:
         env:
           - debug
           - release
-        os: [ubuntu-latest, windows-latest]
+        os: [ windows-latest] #ubuntu-latest,
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -48,4 +48,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{github.workflow}}_${{ matrix.env }}
-          path: ./.pio/build/${{ matrix.env }}/
+          path: ./build
