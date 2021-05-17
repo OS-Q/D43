@@ -5,11 +5,11 @@ on:
     branches:
       - master
     paths:
-      - '*.yml'
-      - '*.ini'
-      - '*.py'
-      - '*.h'
-      - '*.c'
+      - '**.yml'
+      - '**.ini'
+      - '**.py'
+      - '**.h'
+      - '**.c'
 
 jobs:
   build:
